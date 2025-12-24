@@ -1,6 +1,7 @@
 # Euro Rotary Event Platform Setup
 
 ## Environment Variables
+
 Create a `.env.local` file in the root directory with the following variables:
 
 ```bash
@@ -22,6 +23,7 @@ SMTP_FROM=Euro Rotary <no-reply@euro-rotary.com>
 ```
 
 ## Database Schema (Supabase)
+
 Run the following SQL in your Supabase SQL Editor to set up the tables:
 
 ```sql

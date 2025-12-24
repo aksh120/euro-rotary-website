@@ -4,11 +4,15 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+});
 
 export const metadata: Metadata = {
   title: "Euro Rotary Event 2025 | The Pinnacle of Endurance",
-  description: "Join the elite at the most exclusive rotary event of the year. Register now.",
+  description:
+    "Join the elite at the most exclusive rotary event of the year. Register now.",
 };
 
 export default function RootLayout({
@@ -19,10 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body
+        suppressHydrationWarning
         className={cn(
           inter.variable,
           playfair.variable,
-          "bg-luxury-black text-luxury-ivory antialiased font-sans"
+          "bg-luxury-black text-luxury-ivory antialiased font-sans",
         )}
       >
         {children}

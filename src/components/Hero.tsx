@@ -1,88 +1,148 @@
-'use client';
-import { motion } from 'framer-motion';
-import { Button } from './ui/Button';
-import Link from 'next/link';
+"use client";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, Calendar, MapPin, ChevronDown } from "lucide-react";
+import Link from "next/link";
+import { useRef } from "react";
 
-export function Hero() {
-    return (
-        <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-            {/* Background */}
-            <div
-                className="absolute inset-0 z-0"
-            >
-                <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105"
-                    style={{ backgroundImage: "url('/hero-bg.png')" }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-luxury-black/40 to-luxury-black z-10" />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-luxury-black/80 z-10" />
-            </div>
+export const Hero = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll();
 
-            {/* Content */}
-            <div className="relative z-20 container mx-auto px-6 text-center mt-20">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                >
-                    <motion.h2
-                        initial={{ opacity: 0, letterSpacing: '0.1em' }}
-                        animate={{ opacity: 1, letterSpacing: '0.3em' }}
-                        transition={{ duration: 1.5, delay: 0.5 }}
-                        className="text-luxury-gold text-sm md:text-base uppercase font-medium mb-6"
-                    >
-                        May 15-17, 2025 • Monaco
-                    </motion.h2>
+  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
-                    <h1 className="text-5xl md:text-7xl lg:text-9xl font-display font-bold text-luxury-ivory mb-8 leading-tight tracking-tight">
-                        THE PINNACLE <br />
-                        <span className="relative inline-block">
-                            OF
-                            <motion.span
-                                className="absolute top-1/2 left-0 w-full h-[1px] bg-luxury-gold"
-                                initial={{ scaleX: 0 }}
-                                animate={{ scaleX: 1 }}
-                                transition={{ duration: 1, delay: 1 }}
-                            />
-                        </span>{' '}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-luxury-gold via-yellow-200 to-luxury-bronze">
-                            ENDURANCE
-                        </span>
-                    </h1>
+  return (
+    <div
+      ref={containerRef}
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#050505]"
+    >
+      {}
+      <div className="absolute inset-0 z-0">
+        {}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0a0a0a] to-[#111]" />
 
-                    <p className="max-w-2xl mx-auto text-luxury-silver/80 text-lg md:text-xl mb-12 font-light leading-relaxed">
-                        Join the elite gathering of rotary enthusiasts for a weekend of precision, passion, and prestige.
-                    </p>
+        {}
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-luxury-gold/5 rounded-full blur-[120px]"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.1, 0.3, 0.1],
+            right: ["-5%", "0%", "-5%"],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-blue-900/10 rounded-full blur-[150px]"
+        />
 
-                    <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-                        <Link href="/register">
-                            <Button size="lg" variant="primary">
-                                Secure Your Spot
-                            </Button>
-                        </Link>
-                        <Link href="#experience">
-                            <Button size="lg" variant="outline">
-                                Explore The Event
-                            </Button>
-                        </Link>
-                    </div>
-                </motion.div>
-            </div>
+        {}
+        <div
+          className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03] bg-center"
+          style={{ backgroundSize: "50px 50px" }}
+        />
+      </div>
 
-            {/* Scroll Indicator */}
-            <motion.div
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2, duration: 1 }}
-            >
-                <span className="text-[10px] uppercase tracking-widest text-luxury-silver/50">Scroll</span>
-                <motion.div
-                    className="w-[1px] h-16 bg-gradient-to-b from-luxury-gold to-transparent"
-                    animate={{ height: [0, 64, 0], y: [0, 0, 10] }}
-                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                />
-            </motion.div>
-        </section>
-    );
-}
+      {}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 h-full flex flex-col items-center justify-center text-center pt-20">
+        {}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="flex items-center gap-6 mb-8 text-xs md:text-sm font-mono tracking-[0.2em] text-luxury-silver/60 uppercase"
+        >
+          <span className="flex items-center gap-2">
+            <Calendar size={14} className="text-luxury-gold" />
+            Jan 26, 2026
+          </span>
+          <span className="w-1 h-1 bg-luxury-gold rounded-full" />
+          <span className="flex items-center gap-2">
+            <MapPin size={14} className="text-luxury-gold" />
+            Pune, India
+          </span>
+        </motion.div>
+
+        {}
+        <div className="relative mb-6 md:mb-10">
+          {}
+          <div className="absolute -inset-10 bg-luxury-gold/10 blur-3xl rounded-full opacity-0 md:opacity-100 mix-blend-screen" />
+
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="font-display font-black text-6xl md:text-8xl lg:text-[9rem] leading-[0.9] tracking-tighter text-white uppercase relative z-10"
+          >
+            <span className="block text-white drop-shadow-2xl">Fast</span>
+            <span className="block relative">
+              <span className="absolute -inset-2 bg-gradient-to-r from-luxury-gold/0 via-luxury-gold/10 to-luxury-gold/0 blur-xl"></span>
+              <span className="text-luxury-gold">&</span> Furriest
+            </span>
+          </motion.h1>
+        </div>
+
+        {}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="max-w-xl text-base md:text-lg text-luxury-silver/80 leading-relaxed mb-10 md:mb-14 font-light"
+        >
+          Join the gathering of marathon enthusiasts for a weekend of{" "}
+          <span className="text-white font-medium">passion</span>, and{" "}
+          <span className="text-white font-medium">prestige</span>.
+        </motion.p>
+
+        {}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="flex flex-col md:flex-row gap-5 items-center w-full md:w-auto"
+        >
+          <Link href="/register" className="w-full md:w-auto">
+            <button className="w-full md:w-auto px-8 py-4 bg-luxury-gold text-black font-bold tracking-wide uppercase hover:bg-white transition-colors duration-300 clip-path-slant flex items-center justify-center gap-2 group">
+              Secure Your Spot
+              <ArrowRight
+                size={18}
+                className="group-hover:translate-x-1 transition-transform"
+              />
+            </button>
+          </Link>
+          <Link href="#details" className="w-full md:w-auto">
+            <button className="w-full md:w-auto px-8 py-4 border border-white/20 text-white font-medium tracking-wide uppercase hover:bg-white/5 transition-colors duration-300 backdrop-blur-sm">
+              Explore The Event
+            </button>
+          </Link>
+        </motion.div>
+      </div>
+
+      {}
+      {}
+      <motion.div
+        style={{ opacity }}
+        className="absolute right-8 bottom-12 hidden md:flex flex-col items-center gap-4 z-10 mix-blend-difference"
+      >
+        <span className="text-[10px] font-mono uppercase tracking-widest text-luxury-silver/60 [writing-mode:vertical-rl] rotate-180">
+          Scroll to Explore
+        </span>
+        <div className="w-[1px] h-16 bg-white/10 overflow-hidden relative">
+          <motion.div
+            animate={{ top: ["-100%", "100%"] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            className="absolute left-0 w-full h-1/2 bg-luxury-gold"
+          />
+        </div>
+      </motion.div>
+
+      {}
+      <div className="absolute inset-0 pointer-events-none z-[1] opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+    </div>
+  );
+};
