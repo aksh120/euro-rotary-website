@@ -13,6 +13,17 @@ export const metadata: Metadata = {
   title: "Euro Rotary Marathon Event 2026 | Fast & Furriest",
   description:
     "Join the elite at the most exclusive rotary event of the year. Register now.",
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
+  openGraph: {
+    images: ["/opengraph-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/opengraph-image.png"],
+  },
 };
 
 export default function RootLayout({
