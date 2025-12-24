@@ -13,6 +13,14 @@ export async function POST(request: Request) {
       );
     }
 
+    const parsedAge = parseInt(age);
+    if (isNaN(parsedAge) || parsedAge < 18) {
+      return NextResponse.json(
+        { error: "Participants must be at least 18 years old" },
+        { status: 400 },
+      );
+    }
+
     const { data, error } = await supabaseAdmin
       .from("participants")
       .insert([

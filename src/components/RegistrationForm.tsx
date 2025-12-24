@@ -70,7 +70,7 @@ export function RegistrationForm() {
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        {}
+        { }
         <div className="space-y-2 group">
           <label className="text-xs uppercase tracking-widest text-luxury-silver group-focus-within:text-luxury-gold transition-colors">
             Full Name
@@ -87,7 +87,7 @@ export function RegistrationForm() {
           )}
         </div>
 
-        {}
+        { }
         <div className="space-y-2 group">
           <label className="text-xs uppercase tracking-widest text-luxury-silver group-focus-within:text-luxury-gold transition-colors">
             Age
@@ -95,6 +95,8 @@ export function RegistrationForm() {
           <input
             {...register("age")}
             type="number"
+            min="18"
+            max="120"
             className="w-full bg-transparent border-b border-white/20 focus:border-luxury-gold py-2 text-luxury-ivory focus:outline-none transition-colors"
             placeholder="e.g. 25"
           />
@@ -103,7 +105,7 @@ export function RegistrationForm() {
           )}
         </div>
 
-        {}
+        { }
         <div className="space-y-2 group">
           <label className="text-xs uppercase tracking-widest text-luxury-silver group-focus-within:text-luxury-gold transition-colors">
             Gender
@@ -141,7 +143,7 @@ export function RegistrationForm() {
           )}
         </div>
 
-        {}
+        { }
         <div className="space-y-2 group">
           <label className="text-xs uppercase tracking-widest text-luxury-silver group-focus-within:text-luxury-gold transition-colors">
             Email Address
@@ -156,7 +158,7 @@ export function RegistrationForm() {
           )}
         </div>
 
-        {}
+        { }
         <div className="pt-4">
           <label className="flex items-start space-x-3 cursor-pointer">
             <input

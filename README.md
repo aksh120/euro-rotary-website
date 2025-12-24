@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Euro Rotary Marathon 2026 | Fast & Furriest
 
-## Getting Started
+A premium, high-performance web platform built for the most exclusive rotary marathon event. Designed with a luxury aesthetic (Gold, Ivory, and Deep Black), this application manages the entire event lifecycle from registration to broadcast.
 
-First, run the development server:
+## 🏎️ Core Features
+
+- **Premium Landing Experience**: A high-impact, editorial-style interface with glassmorphism, glowing accents, and smooth Framer Motion animations.
+- **Secure Registration**: Multi-step registration system with real-time validation and a strict age-gate (minimum 18 years).
+- **Payment Gateway**: Full integration with Razorpay for secure registration fee processing.
+- **Admin Mission Control**: A sophisticated dashboard for organizers to manage participants, verify payments, and monitor event stats.
+- **Newsletter System**:
+  - Integrated subscription form in the global footer.
+  - Automated "Welcome to the Inner Circle" email triggers.
+  - Admin "Campaign Center" to send branded HTML broadcasts to all active subscribers.
+- **Automated Bib Assignment**: Real-time generation of race bib numbers upon successful payment.
+
+## 🛠️ Technology Stack
+
+- **Framework**: [Next.js 16 (App Router)](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Database & Auth**: [Supabase](https://supabase.com/) (PostgreSQL + SSR Auth)
+- **Payments**: [Razorpay](https://razorpay.com/)
+- **Email Service**: [Nodemailer](https://nodemailer.com/) (Custom Branded HTML Templates)
+- **Icons**: [Lucide React](https://lucide.dev/)
+
+## ⚙️ Environment Configuration
+
+Create a `.env.local` file with the following keys:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+
+# Razorpay
+NEXT_PUBLIC_RAZORPAY_KEY_ID=your_key_id
+RAZORPAY_KEY_SECRET=your_key_secret
+
+# SMTP (Newsletter & Confirmations)
+SMTP_HOST=your_host.example.com
+SMTP_PORT=587
+SMTP_USER=your_email@example.com
+SMTP_PASS=your_app_password
+SMTP_SECURE=false # Set to true for Port 465
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🏗️ Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Database Setup**:
+   - Create a `participants` table with columns: `id`, `full_name`, `email`, `gender`, `age`, `bib_number`, `status`.
+   - Create a `newsletter_subscriptions` table with columns: `id`, `email`, `created_at`, `unsubscribed`.
+   - Enable Row Level Security (RLS) on both.
 
-## Learn More
+3. **Run Development Server**:
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Build for Production**:
+   ```bash
+   npm run build
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛡️ Security
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **RLS Policies**: All sensitive data is protected via Supabase Row Level Security. Public users can only insert registration data; only authenticated admins (`admin@akimbolabs.site`) can view or manage records.
+- **Validation**: Strict server-side validation for all inputs, specially focusing on age and email integrity.
+- **Authentication**: JWT-based session management using Next.js Middleware.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+© 2026 Euro Rotary. Built for performance.
