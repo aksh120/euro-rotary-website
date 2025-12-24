@@ -10,7 +10,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Euro Rotary Event 2025 | The Pinnacle of Endurance",
+  title: "Euro Rotary Marathon Event 2026 | Fast & Furriest",
   description:
     "Join the elite at the most exclusive rotary event of the year. Register now.",
 };

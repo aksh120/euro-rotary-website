@@ -76,7 +76,7 @@ export const sendNewsletter = async (
                 </p>
             </div>
             <div class="footer">
-                <p>&copy; 2025 Euro Rotary. All rights reserved.</p>
+                <p>&copy; 2026 Euro Rotary. All rights reserved.</p>
                 <a href="#" style="color: #666; text-decoration: underline;">Unsubscribe</a>
             </div>
         </div>

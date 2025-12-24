@@ -166,7 +166,7 @@ export function Navbar() {
 
             <div className="p-8 text-center border-t border-white/5">
               <p className="text-luxury-silver/40 text-[10px] uppercase tracking-[0.3em]">
-                Euro Rotary 2025 • Pune
+                Euro Rotary 2026 • Pune
               </p>
             </div>
           </motion.div>

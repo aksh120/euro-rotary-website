@@ -18,12 +18,12 @@ export const sendConfirmationEmail = async (
   const mailOptions = {
     from: process.env.SMTP_FROM || "no-reply@example.com",
     to,
-    subject: "Registration Confirmed - Euro Rotary Event 2025",
+    subject: "Registration Confirmed - Euro Rotary Marathon 2026",
     html: `
       <div style="background-color: #1a1a1a; color: #ffffff; padding: 40px; font-family: sans-serif;">
         <h1 style="color: #D4AF37;">Welcome to the Elite</h1>
         <p>Dear ${name},</p>
-        <p>Your registration for the Euro Rotary Event 2025 has been confirmed.</p>
+        <p>Your registration for the Euro Rotary Marathon 2026 has been confirmed.</p>
         <div style="background-color: #333; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <p style="margin: 0; color: #aaa; font-size: 12px; text-transform: uppercase;">Your Bib Number</p>
             <p style="margin: 10px 0 0 0; font-size: 32px; font-weight: bold; color: #D4AF37;">${bib}</p>

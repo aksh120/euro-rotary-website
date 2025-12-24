@@ -204,7 +204,7 @@ export function Footer() {
         {}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/5 pt-8">
           <p className="text-luxury-silver/30 text-xs font-mono uppercase tracking-wider">
-            © 2025 Euro Rotary Event. All rights reserved.
+            © 2026 Euro Rotary. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />

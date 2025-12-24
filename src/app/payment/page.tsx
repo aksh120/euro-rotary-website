@@ -39,7 +39,7 @@ function PaymentContent() {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
         amount: order.amount,
         currency: order.currency,
-        name: "Euro Rotary Event",
+        name: "Euro Rotary Marathon Event 2026",
         description: "Event Registration Fee",
         order_id: order.id,
         handler: async function (response: any) {
