@@ -13,8 +13,8 @@ const formSchema = z.object({
   age: z
     .string()
     .min(1, "Age is required")
-    .refine((val) => !isNaN(Number(val)) && Number(val) >= 18, {
-      message: "Must be at least 18",
+    .refine((val) => !isNaN(Number(val)) && Number(val) <= 18, {
+      message: "Must be 18 or under",
     }),
   gender: z.enum(["male", "female", "other"] as const, {
     message: "Please select a gender",
@@ -95,10 +95,10 @@ export function RegistrationForm() {
           <input
             {...register("age")}
             type="number"
-            min="18"
-            max="120"
+            min="1"
+            max="18"
             className="w-full bg-transparent border-b border-white/20 focus:border-luxury-gold py-2 text-luxury-ivory focus:outline-none transition-colors"
-            placeholder="e.g. 25"
+            placeholder="e.g. 15"
           />
           {errors.age && (
             <p className="text-red-400 text-xs mt-1">{errors.age.message}</p>

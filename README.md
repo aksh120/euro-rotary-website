@@ -5,7 +5,7 @@ A premium, high-performance web platform built for the most exclusive rotary mar
 ## 🏎️ Core Features
 
 - **Premium Landing Experience**: A high-impact, editorial-style interface with glassmorphism, glowing accents, and smooth Framer Motion animations.
-- **Secure Registration**: Multi-step registration system with real-time validation and a strict age-gate (minimum 18 years).
+- **Secure Registration**: Multi-step registration system with real-time validation and a strict age-gate (maximum 18 years).
 - **Payment Gateway**: Full integration with Razorpay for secure registration fee processing.
 - **Admin Mission Control**: A sophisticated dashboard for organizers to manage participants, verify payments, and monitor event stats.
 - **Newsletter System**:
