@@ -39,7 +39,7 @@ export const sendNewsletter = async (
   }
 
   const summary = content.replace(/<[^>]*>/g, "").substring(0, 100).trim();
-  const preheaderText = `${subject} - ${summary} | Euro Rotary Club`;
+  const preheaderText = `${summary} | Euro Rotary Club`;
   const padding = "&zwnj;&nbsp;".repeat(150);
 
   const html = `
