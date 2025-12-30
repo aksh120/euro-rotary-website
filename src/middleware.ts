@@ -53,7 +53,7 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(url);
     }
 
-    const allowedEmails = ["admin@eurorotary.com", "vip@eurorotary.com"];
+    const allowedEmails = ["admin@eurorotary.com", "vip@eurorotary.com", "admin@akimbolabs.site", "rotary@akimbolabs.site"];
     const isLocal = process.env.NODE_ENV === "development";
 
     if (

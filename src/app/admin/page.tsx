@@ -56,7 +56,7 @@ export default function AdminLogin() {
             <input
               type="email"
               className="w-full bg-black/40 border border-white/10 p-3 rounded text-white focus:border-luxury-gold outline-none transition-colors"
-              placeholder="admin@euro-rotary.com"
+              placeholder="admin@akimbolabs.site"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
