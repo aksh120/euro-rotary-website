@@ -38,6 +38,10 @@ export const sendNewsletter = async (
     throw new Error("SMTP credentials not configured (SMTP_USER/SMTP_PASS)");
   }
 
+  const summary = content.replace(/<[^>]*>/g, "").substring(0, 100).trim();
+  const preheaderText = `${subject} - ${summary} | Euro Rotary Club`;
+  const padding = "&zwnj;&nbsp;".repeat(150);
+
   const html = `
     <!DOCTYPE html>
     <html>
@@ -53,6 +57,10 @@ export const sendNewsletter = async (
         </style>
     </head>
     <body>
+        <div style="display:none;font-size:1px;color:#333333;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">
+            ${preheaderText}
+            ${padding}
+        </div>
         <div class="container">
             <div class="header" style="text-align: center; padding: 30px; background-color: #000;">
                 <a href="https://rotary.akimbolabs.site" style="text-decoration: none; display: inline-block;">
